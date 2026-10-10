@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subashini M | Computer Science Engineer & Software Developer Portfolio</title>
+
+  <meta name="description"
+    content="Portfolio of Subashini M - 3rd-year B.E. Computer Science and Engineering student at K. Ramakrishnan College of Technology. Proficient in Java, Python, and C with hands-on projects in BST and Python systems." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <!-- React 18 & Babel Standalone CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- External Stylesheet link -->
+  <link rel="stylesheet" href="./src/index.css" />
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    const personalInfo = {
+      name: "Subashini M",
+      tagline: "Aspiring Software Engineer & Computer Science Student",
+      statusBadge: "Available for Internships & Projects",
+      college: "K. Ramakrishnan College of Technology",
+      degree: "B.E. Computer Science and Engineering",
+      currentYear: "3rd Year",
+      email: "subashinim.krct@gmail.com",
+      phone: "8248941415",
+      formattedPhone: "+91 8248941415",
+      location: "Tamil Nadu, India",
+      careerObjective:
+        "Third-year B.E. Computer Science and Engineering student at K. Ramakrishnan College of Technology, with knowledge of Java and Python. Seeking opportunities to apply programming skills, strengthen technical abilities, and contribute to practical software projects.",
+      stats: [
+        { label: "Year of Study", value: "3rd Year", subtext: "B.E. CSE" },
+        { label: "Core Projects", value: "2+", subtext: "BST & Python Systems" },
+        { label: "Certifications", value: "3", subtext: "NPTEL & College Honors" },
+        { label: "Focus Areas", value: "Java & Python", subtext: "Software & Data Structures" }
+      ]
+    };
+
+    const skillsData = [
+      {
+        category: "Programming Languages",
+        items: [
+          { name: "Java", level: 85, icon: "☕", description: "OOP, Collections, Exception Handling, Core Architecture" },
+          { name: "Python", level: 88, icon: "🐍", description: "Scripting, Automation, Data Processing, Project Development" },
+          { name: "C Programming", level: 80, icon: "⚡", description: "Pointers, Memory Allocation, Problem Solving (NPTEL Certified)" },
+          { name: "JavaScript", level: 78, icon: "🟨", description: "ES6+, DOM Manipulation, Async/Await, Web Interactivity" }
+        ]
+      },
+      {
+        category: "Core Computer Science",
+        items: [
+          { name: "Binary Search Trees (BST)", level: 88, icon: "🌳", description: "Hierarchical Traversal, In-order/Pre-order, O(log n) Search" },
+          { name: "Data Structures & Algorithms", level: 82, icon: "📊", description: "Arrays, Linked Lists, Stacks, Queues, Sorting & Searching" },
+          { name: "Object-Oriented Design", level: 85, icon: "🧩", description: "Encapsulation, Inheritance, Polymorphism, Modular Architecture" },
+          { name: "Software Development Lifecycle", level: 80, icon: "🔄", description: "System Design, Testing, Requirements Analysis & Debugging" }
+        ]
+      },
+      {
+        category: "Web & Development Tools",
+        items: [
+          { name: "React.js", level: 80, icon: "⚛️", description: "Component-driven architecture, Hooks, State Management" },
+          { name: "HTML5 & CSS3", level: 88, icon: "🎨", description: "Modern responsive layouts, Flexbox, Grid, Custom Animations" },
+          { name: "Git & Version Control", level: 75, icon: "🐙", description: "Repository management, branching, GitHub workflows" },
+          { name: "VS Code & IDE Tools", level: 90, icon: "💻", description: "Code debugging, extensions, efficient development environment" }
+        ]
+      },
+      {
+        category: "Professional & Soft Skills",
+        items: [
+          { name: "Problem Solving", level: 90, icon: "💡", description: "NPTEL certified systematic algorithmic approach" },
+          { name: "Paper Presentation", level: 85, icon: "🎤", description: "Technical research presentation at CARE College" },
+          { name: "Soft Skills & Personality", level: 92, icon: "🤝", description: "NPTEL certified interpersonal communication & teamwork" },
+          { name: "Continuous Learning", level: 95, icon: "🚀", description: "Eager to explore new tools, paradigms, and software challenges" }
+        ]
+      }
+    ];
+
+    const projectsData = [
+      {
+        id: "bst-playlist",
+        title: "Music Playlist Organizer Using BST",
+        subtitle: "Academic Data Structures & Algorithm Project",
+        badge: "Core DS Project",
+        summary:
+          "An intelligent academic project focused on organizing, sorting, and retrieving a music playlist using a Binary Search Tree (BST) data structure for optimal O(log n) lookup and sorted playlist traversal.",
+        highlights: [
+          "Implemented Binary Search Tree (BST) for fast logarithmic O(log n) song search and insertion.",
+          "In-order traversal algorithm outputs tracks automatically in alphabetical order.",
+          "Optimized memory usage compared to linked list structures for large playlists.",
+          "Supports dynamic adding, deleting, searching, and traversal of music track metadata."
+        ],
+        techStack: ["Binary Search Tree (BST)", "Java", "C Data Structures", "Algorithm Analysis"]
+      },
+      {
+        id: "digital-notice-board",
+        title: "Digital Notice Board in Python",
+        subtitle: "Python-Based Campus Information Broadcast System",
+        badge: "Practical Software",
+        summary:
+          "A Python-based project designed to broadcast and manage campus circulars, departmental alerts, and urgent announcements dynamically on a digital notice board display.",
+        highlights: [
+          "Centralized administrative console to publish, expire, and prioritize college announcements.",
+          "Categorized notice feeds: Academic, Exam Schedules, Events, and Emergency Alerts.",
+          "Clean automated scrolling and real-time updates without manual blackboard intervention.",
+          "Modular Python codebase adaptable to physical LCD displays or campus web portals."
+        ],
+        techStack: ["Python", "GUI / System Automation", "File Management", "Event Handling"]
+      }
+    ];
+
+    const certificationsData = [
+      {
+        id: "nptel-soft-skills",
+        title: "Enhancing Soft Skills and Personality",
+        issuer: "NPTEL",
+        badgeText: "Verified NPTEL",
+        icon: "🌟",
+        color: "#6366F1",
+        description:
+          "Comprehensive certification evaluating verbal & non-verbal communication, interpersonal leadership, professional presentation, emotional intelligence, and workplace etiquette.",
+        keyTakeaway: "Enhanced public speaking, collaboration, and professional workplace communication."
+      },
+      {
+        id: "nptel-c-programming",
+        title: "Problem Solving in C",
+        issuer: "NPTEL",
+        badgeText: "Verified NPTEL",
+        icon: "⚡",
+        color: "#06B6D4",
+        description:
+          "Rigorous technical course covering core computational logic, structured programming, memory models, pointers, dynamic memory allocation, and algorithmic problem solving.",
+        keyTakeaway: "Strong computational thinking, memory management, and structured algorithmic foundation."
+      },
+      {
+        id: "care-paper-presentation",
+        title: "Paper Presentation",
+        issuer: "CARE College",
+        badgeText: "Honors & Achievement",
+        icon: "🏆",
+        color: "#8B5CF6",
+        description:
+          "Presented a technical paper before an esteemed faculty jury at CARE College, demonstrating research methodology, literature review, technical synthesis, and audience engagement.",
+        keyTakeaway: "Recognized for clear articulation of technical concepts and articulate Q&A defense."
+      }
+    ];
+
+    const educationData = {
+      degree: "B.E. Computer Science and Engineering",
+      institution: "K. Ramakrishnan College of Technology",
+      currentStatus: "3rd Year (Active Student)",
+      duration: "2023 - 2027 (Expected)",
+      location: "Tiruchirappalli, Tamil Nadu",
+      courses: [
+        "Data Structures & Algorithms",
+        "Object-Oriented Programming (Java)",
+        "Python Programming",
+        "Database Management Systems",
+        "Operating Systems",
+        "Computer Networks",
+        "Software Engineering"
+      ]
+    };
+
+    function App() {
+      const [theme, setTheme] = useState("dark");
+      const [isResumeOpen, setIsResumeOpen] = useState(false);
+      const [toastMessage, setToastMessage] = useState("");
+      const [activeTab, setActiveTab] = useState("All");
+      const [activeDemo, setActiveDemo] = useState("bst-playlist");
+
+      // BST Demo
+      const [songs, setSongs] = useState([
+        { name: 'Neon Rhythm', artist: 'SynthWave' },
+        { name: 'Electric Pulse', artist: 'CyberTrack' },
+        { name: 'Solar Flare', artist: 'Aura Beats' },
+        { name: 'Acoustic Horizon', artist: 'Indie Vibe' },
+        { name: 'Midnight Echo', artist: 'Chillhop' }
+      ]);
+      const [newSongTitle, setNewSongTitle] = useState("");
+      const [searchQuery, setSearchQuery] = useState("");
+      const [searchResult, setSearchResult] = useState(null);
+      const [traversalResult, setTraversalResult] = useState(null);
+
+      // Notice Board Demo
+      const [notices, setNotices] = useState([
+        { id: 1, title: 'University Semester Lab Examinations Schedule Released', category: 'Exams', date: 'Today, 10:30 AM', priority: 'high', dept: 'Controller of Examinations' },
+        { id: 2, title: 'National Level Technical Symposium - Registration Open', category: 'Events', date: 'Yesterday', priority: 'normal', dept: 'Dept of CSE' },
+        { id: 3, title: 'NPTEL Certification Examination Registration Reminder', category: 'Academic', date: 'Oct 08', priority: 'normal', dept: 'Academic Affairs' }
+      ]);
+      const [noticeFilter, setNoticeFilter] = useState("All");
+      const [newNoticeTitle, setNewNoticeTitle] = useState("");
+      const [newNoticeCategory, setNewNoticeCategory] = useState("Academic");
+
+      useEffect(() => {
+        document.documentElement.setAttribute('data-theme', theme);
+      }, [theme]);
+
+      const showToast = (msg) => {
+        setToastMessage(msg);
+        setTimeout(() => setToastMessage(""), 3200);
+      };
+
+      const handleAddSong = (e) => {
+        e.preventDefault();
+        if (!newSongTitle.trim()) return;
+        setSongs([...songs, { name: newSongTitle.trim(), artist: 'User Added' }]);
+        setNewSongTitle("");
+        showToast(`Inserted "${newSongTitle}" into BST in O(log n) time!`);
+      };
+
+      const handleSearchSong = (e) => {
+        e.preventDefault();
+        if (!searchQuery.trim()) return;
+        const found = songs.find(s => s.name.toLowerCase() === searchQuery.trim().toLowerCase());
+        if (found) {
+          setSearchResult(`Found "${found.name}" by ${found.artist} via BST Binary Search Path!`);
+          showToast(`Found "${found.name}"!`);
+        } else {
+          setSearchResult(`"${searchQuery}" not found in current playlist BST.`);
+        }
+      };
+
+      const handleInOrderTraversal = () => {
+        const sorted = [...songs].sort((a, b) => a.name.localeCompare(b.name));
+        setTraversalResult(sorted.map(s => s.name).join('  ➔  '));
+        showToast('In-order traversal calculated sorted sequence!');
+      };
+
+      const handleAddNotice = (e) => {
+        e.preventDefault();
+        if (!newNoticeTitle.trim()) return;
+        setNotices([{
+          id: Date.now(),
+          title: newNoticeTitle.trim(),
+          category: newNoticeCategory,
+          date: 'Just Now',
+          priority: 'normal',
+          dept: 'CSE Dept Announcement'
+        }, ...notices]);
+        setNewNoticeTitle("");
+        showToast("New circular broadcasted to Digital Notice Board!");
+      };
+
+      const filteredNotices = noticeFilter === "All" ? notices : notices.filter(n => n.category === noticeFilter);
+      const categories = ['All', ...skillsData.map((s) => s.category)];
+      const filteredSkills = activeTab === 'All'
+        ? skillsData.flatMap((cat) => cat.items.map((item) => ({ ...item, category: cat.category })))
+        : skillsData.find((cat) => cat.category === activeTab)?.items.map((item) => ({ ...item, category: activeTab })) || [];
+
+      return (
+        <div className="portfolio-app">
+          {/* Ambient Lighting Blobs */}
+          <div className="ambient-bg" aria-hidden="true">
+            <div className="ambient-blob blob-1"></div>
+            <div className="ambient-blob blob-2"></div>
+            <div className="ambient-blob blob-3"></div>
+          </div>
+
+          {/* Navigation Bar */}
+          <header className="navbar scrolled">
+            <div className="container nav-container">
+              <a href="#hero" className="nav-logo">
+                <div className="logo-badge">SM</div>
+                <span>{personalInfo.name}</span>
+              </a>
+
+              <nav>
+                <ul className="nav-links">
+                  <li><a href="#about" className="nav-link">About</a></li>
+                  <li><a href="#skills" className="nav-link">Skills</a></li>
+                  <li><a href="#projects" className="nav-link">Projects</a></li>
+                  <li><a href="#certifications" className="nav-link">Certifications</a></li>
+                  <li><a href="#education" className="nav-link">Education</a></li>
+                  <li><a href="#contact" className="nav-link">Contact</a></li>
+                </ul>
+              </nav>
+
+              <div className="nav-actions">
+                <button
+                  onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                  className="theme-toggle-btn"
+                >
+                  {theme === 'dark' ? '☀️' : '🌙'}
+                </button>
+                <button onClick={() => setIsResumeOpen(true)} className="btn btn-secondary" style={{ padding: '0.55rem 1.1rem', fontSize: '0.88rem' }}>
+                  📄 Resume
+                </button>
+              </div>
+            </div>
+          </header>
+
+          <main>
+            {/* HERO */}
+            <section id="hero" className="hero-section">
+              <div className="container">
+                <div className="hero-grid">
+                  <div className="hero-content">
+                    <div className="hero-status-pill">
+                      <span className="pulse-dot"></span>
+                      <span>{personalInfo.statusBadge}</span>
+                    </div>
+
+                    <p className="hero-greeting">Hello World, I'm</p>
+                    <h1 className="hero-name">{personalInfo.name}</h1>
+                    <p className="hero-role">{personalInfo.tagline}</p>
+
+                    <div className="hero-college-badge">
+                      <span>🏛️</span>
+                      <span>{personalInfo.college} &bull; {personalInfo.degree} ({personalInfo.currentYear})</span>
+                    </div>
+
+                    <p className="hero-bio">{personalInfo.careerObjective}</p>
+
+                    <div className="hero-cta-group">
+                      <a href="#projects" className="btn btn-primary">🚀 Explore Projects</a>
+                      <a href="#contact" className="btn btn-secondary">💬 Get In Touch</a>
+                      <button onClick={() => setIsResumeOpen(true)} className="btn btn-outline">📄 View Resume</button>
+                    </div>
+                  </div>
+
+                  <div className="hero-visual">
+                    <div className="avatar-wrapper">
+                      <div className="avatar-inner">
+                        {/* Vector Dev Graphic */}
+                        <img
+                          src="./myphoto.jpg"
+                          alt="Subashini"
+                          className="avatar-svg my-profile-photo"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="floating-badge badge-1"><span>☕</span> Java</div>
+                    <div className="floating-badge badge-2"><span>🐍</span> Python</div>
+                    <div className="floating-badge badge-3"><span>🌳</span> BST Algorithms</div>
+                    <div className="floating-badge badge-4"><span>⚡</span> C Problem Solving</div>
+                  </div>
+                </div>
+
+                <div className="stats-ribbon">
+                  {personalInfo.stats.map((s, idx) => (
+                    <div className="stat-item" key={idx}>
+                      <div className="stat-val">{s.value}</div>
+                      <div className="stat-lbl">{s.label}</div>
+                      <div className="stat-sub">{s.subtext}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* ABOUT */}
+            <section id="about" className="about-section">
+              <div className="container">
+                <div className="section-header">
+                  <span className="section-badge">🎯 Career Objective & Profile</span>
+                  <h2 className="section-title">About Me</h2>
+                  <p className="section-subtitle">Transforming algorithmic thinking into resilient, practical software solutions.</p>
+                </div>
+
+                <div className="about-grid">
+                  <div className="glass-card">
+                    <h3 style={{ fontSize: '1.4rem', marginBottom: '1rem', color: 'var(--text-highlight)' }}>Professional Statement</h3>
+                    <div className="objective-box">
+                      <p>"{personalInfo.careerObjective}"</p>
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.8rem' }}>
+                        <span style={{ fontSize: '1.4rem' }}>💡</span>
+                        <div>
+                          <h4 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-highlight)' }}>Algorithmic & Problem-Solving Mindset</h4>
+                          <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Trained in fundamental data structures including Binary Search Trees (BST), linked lists, and sorting with NPTEL problem solving in C.</p>
+                        </div>
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.8rem' }}>
+                        <span style={{ fontSize: '1.4rem' }}>🛠️</span>
+                        <div>
+                          <h4 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-highlight)' }}>Practical Software Development</h4>
+                          <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Hands-on experience developing Python automation systems and building structured OOP applications in Java.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="glass-card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                    <div>
+                      <h3 style={{ fontSize: '1.4rem', marginBottom: '1.25rem', color: 'var(--text-highlight)' }}>Academic & Contact Summary</h3>
+                      <div className="about-card-info">
+                        <div className="info-pill"><div className="info-pill-title">Academic Institution</div><div className="info-pill-value">{personalInfo.college}</div></div>
+                        <div className="info-pill"><div className="info-pill-title">Degree Program</div><div className="info-pill-value">{personalInfo.degree}</div></div>
+                        <div className="info-pill"><div className="info-pill-title">Current Academic Year</div><div className="info-pill-value">{personalInfo.currentYear}</div></div>
+                        <div className="info-pill"><div className="info-pill-title">Core Languages</div><div className="info-pill-value">Java, Python, C</div></div>
+                        <div className="info-pill"><div className="info-pill-title">Direct Contact</div><div className="info-pill-value">{personalInfo.phone}</div></div>
+                        <div className="info-pill"><div className="info-pill-title">Email Address</div><div className="info-pill-value" style={{ fontSize: '0.82rem' }}>{personalInfo.email}</div></div>
+                      </div>
+                    </div>
+
+                    <div style={{ marginTop: '1.5rem', padding: '1.25rem', borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, rgba(6,182,212,0.12) 0%, rgba(99,102,241,0.08) 100%)', border: '1px solid rgba(6,182,212,0.25)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <div>
+                        <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-highlight)' }}>Looking for summer internships?</h4>
+                        <p style={{ fontSize: '0.84rem', color: 'var(--text-secondary)' }}>Available for immediate software engineering opportunities.</p>
+                      </div>
+                      <a href="#contact" className="btn btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}>Hire Me</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* SKILLS */}
+            <section id="skills" className="skills-section">
+              <div className="container">
+                <div className="section-header">
+                  <span className="section-badge">⚡ Core Competencies</span>
+                  <h2 className="section-title">Technical & Professional Skills</h2>
+                  <p className="section-subtitle">A balanced foundation spanning structured programming, data structures, and certified interpersonal soft skills.</p>
+                </div>
+
+                <div className="skills-filter-tabs">
+                  {categories.map((c) => (
+                    <button key={c} className={`tab-btn ${activeTab === c ? 'active' : ''}`} onClick={() => setActiveTab(c)}>{c}</button>
+                  ))}
+                </div>
+
+                <div className="skills-grid">
+                  {filteredSkills.map((skill, index) => (
+                    <div className="glass-card skill-card" key={index}>
+                      <div className="skill-header">
+                        <div className="skill-icon-name">
+                          <span className="skill-icon">{skill.icon}</span>
+                          <div>
+                            <h3 className="skill-title">{skill.name}</h3>
+                            <span className="skill-category-tag">{skill.category}</span>
+                          </div>
+                        </div>
+                        <span style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--primary)' }}>{skill.level}%</span>
+                      </div>
+                      <p className="skill-desc">{skill.description}</p>
+                      <div className="skill-bar-container">
+                        <div className="skill-bar-fill" style={{ width: `${skill.level}%` }}></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* PROJECTS */}
+            <section id="projects" className="projects-section">
+              <div className="container">
+                <div className="section-header">
+                  <span className="section-badge">🚀 Academic Portfolio</span>
+                  <h2 className="section-title">Featured Academic Projects</h2>
+                  <p className="section-subtitle">Data structures, algorithmic analysis, and practical Python system automation.</p>
+                </div>
+
+                <div className="projects-grid">
+                  {projectsData.map((project) => (
+                    <article className="glass-card project-card" key={project.id}>
+                      <div className="project-banner">
+                        <svg className="project-banner-svg" viewBox="0 0 500 200" fill="none">
+                          <rect width="500" height="200" fill="#0f172a" />
+                          <circle cx="250" cy="50" r="24" fill="#6366f1" />
+                          <text x="250" y="55" fill="white" fontSize="12" fontWeight="bold" textAnchor="middle">ROOT NODE</text>
+                          <line x1="250" y1="74" x2="160" y2="120" stroke="#818cf8" strokeWidth="2.5" />
+                          <line x1="250" y1="74" x2="340" y2="120" stroke="#818cf8" strokeWidth="2.5" />
+                          <circle cx="160" cy="130" r="22" fill="#06b6d4" />
+                          <text x="160" y="134" fill="white" fontSize="11" fontWeight="bold" textAnchor="middle">&lt; LEFT</text>
+                          <circle cx="340" cy="130" r="22" fill="#8b5cf6" />
+                          <text x="340" y="134" fill="white" fontSize="11" fontWeight="bold" textAnchor="middle">&gt; RIGHT</text>
+                        </svg>
+                        <span className="project-badge-tag">{project.badge}</span>
+                      </div>
+                      <h3 className="project-title">{project.title}</h3>
+                      <p className="project-subtitle">{project.subtitle}</p>
+                      <p className="project-summary">{project.summary}</p>
+                      <ul className="project-points">
+                        {project.highlights.map((h, i) => (
+                          <li className="project-point" key={i}><span className="project-point-dot">✔</span><span>{h}</span></li>
+                        ))}
+                      </ul>
+                      <div className="project-tags">
+                        {project.techStack.map((t, idx) => (<span className="tag-pill" key={idx}>{t}</span>))}
+                      </div>
+                      <div className="project-footer-actions">
+                        <button
+                          className={`btn ${activeDemo === project.id ? 'btn-primary' : 'btn-secondary'}`}
+                          style={{ width: '100%' }}
+                          onClick={() => {
+                            setActiveDemo(project.id);
+                            document.getElementById('interactive-demo-container')?.scrollIntoView({ behavior: 'smooth' });
+                          }}
+                        >
+                          {activeDemo === project.id ? '⭐ Active Interactive Demo' : '🎮 Test Live Interactive Demo'}
+                        </button>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+
+                {/* SIMULATOR */}
+                <div id="interactive-demo-container" className="glass-card" style={{ marginTop: '3.5rem' }}>
+                  <div className="section-header" style={{ marginBottom: '2rem' }}>
+                    <span className="section-badge">🧪 Live Project Simulator</span>
+                    <h3 style={{ fontSize: '1.9rem', fontWeight: 800 }}>
+                      {activeDemo === 'bst-playlist' ? 'Binary Search Tree Music Playlist Demo' : 'Python Digital Notice Board Demo'}
+                    </h3>
+                  </div>
+
+                  <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginBottom: '2rem' }}>
+                    <button className={`tab-btn ${activeDemo === 'bst-playlist' ? 'active' : ''}`} onClick={() => setActiveDemo('bst-playlist')}>
+                      🎵 BST Music Playlist Demo
+                    </button>
+                    <button className={`tab-btn ${activeDemo === 'digital-notice-board' ? 'active' : ''}`} onClick={() => setActiveDemo('digital-notice-board')}>
+                      📢 Python Notice Board Demo
+                    </button>
+                  </div>
+
+                  {activeDemo === 'bst-playlist' ? (
+                    <div className="demo-container-box">
+                      <div className="demo-title-bar">
+                        <span style={{ fontWeight: 700, color: 'var(--text-highlight)' }}>BST Playlist Engine &bull; O(log n) Operations</span>
+                        <span style={{ fontSize: '0.85rem', color: 'var(--cyan)' }}>Total Tracks: {songs.length}</span>
+                      </div>
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem', marginBottom: '1.5rem' }}>
+                        <form onSubmit={handleAddSong} style={{ display: 'flex', gap: '0.5rem' }}>
+                          <input type="text" className="bst-input" placeholder="Enter track title..." value={newSongTitle} onChange={e => setNewSongTitle(e.target.value)} />
+                          <button type="submit" className="btn btn-primary" style={{ padding: '0.6rem 1.1rem', fontSize: '0.85rem' }}>+ Insert BST</button>
+                        </form>
+                        <form onSubmit={handleSearchSong} style={{ display: 'flex', gap: '0.5rem' }}>
+                          <input type="text" className="bst-input" placeholder="Search track in O(log n)..." value={searchQuery} onChange={e => setSearchQuery(e.target.value)} />
+                          <button type="submit" className="btn btn-secondary" style={{ padding: '0.6rem 1.1rem', fontSize: '0.85rem' }}>🔍 Search</button>
+                        </form>
+                      </div>
+                      {searchResult && (
+                        <div style={{ padding: '0.75rem', background: 'rgba(6,182,212,0.1)', border: '1px solid var(--cyan)', borderRadius: 'var(--radius-sm)', marginBottom: '1rem', fontSize: '0.88rem' }}>
+                          ⚡ {searchResult}
+                        </div>
+                      )}
+                      <div className="bst-canvas-view">
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.25rem', justifyContent: 'center' }}>
+                          {songs.map((song, i) => (
+                            <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'var(--bg-card)', padding: '0.75rem 1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-card)' }}>
+                              <div className="node-circle">#{i + 1}</div>
+                              <div style={{ fontSize: '0.85rem', fontWeight: 700, marginTop: '0.4rem', color: 'var(--text-highlight)' }}>{song.name}</div>
+                              <div style={{ fontSize: '0.72rem', color: 'var(--cyan)' }}>{song.artist}</div>
+                            </div>
+                          ))}
+                        </div>
+                        <div style={{ marginTop: '1.5rem' }}>
+                          <button onClick={handleInOrderTraversal} className="btn btn-outline" style={{ fontSize: '0.82rem', padding: '0.5rem 1rem' }}>▶ Run In-Order Traversal (Alphabetical Sort)</button>
+                        </div>
+                        {traversalResult && (
+                          <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: 'var(--emerald)', fontWeight: 600 }}>Sorted Traversal Output: {traversalResult}</div>
+                        )}
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="demo-container-box">
+                      <div className="demo-title-bar">
+                        <span style={{ fontWeight: 700, color: 'var(--text-highlight)' }}>Campus Notice Engine &bull; Live Broadcast</span>
+                        <div style={{ display: 'flex', gap: '0.5rem' }}>
+                          {['All', 'Academic', 'Exams', 'Events'].map(c => (
+                            <button key={c} className={`tab-btn ${noticeFilter === c ? 'active' : ''}`} style={{ padding: '0.25rem 0.75rem', fontSize: '0.78rem' }} onClick={() => setNoticeFilter(c)}>{c}</button>
+                          ))}
+                        </div>
+                      </div>
+                      <form onSubmit={handleAddNotice} style={{ display: 'flex', gap: '0.75rem', marginBottom: '1.25rem' }}>
+                        <input type="text" className="bst-input" placeholder="Broadcast new college circular..." value={newNoticeTitle} onChange={e => setNewNoticeTitle(e.target.value)} style={{ flexGrow: 1 }} />
+                        <select value={newNoticeCategory} onChange={e => setNewNoticeCategory(e.target.value)} className="bst-input" style={{ width: '130px' }}>
+                          <option value="Academic">Academic</option>
+                          <option value="Exams">Exams</option>
+                          <option value="Events">Events</option>
+                        </select>
+                        <button type="submit" className="btn btn-primary" style={{ padding: '0.6rem 1.1rem', fontSize: '0.85rem' }}>📡 Broadcast</button>
+                      </form>
+                      <div className="notice-board-feed">
+                        {filteredNotices.map(n => (
+                          <div key={n.id} className={`notice-card-item ${n.priority === 'high' ? 'notice-priority-high' : ''}`}>
+                            <div className="notice-header-row"><span>🏛️ {n.dept} &bull; [{n.category}]</span><span>🕒 {n.date}</span></div>
+                            <div className="notice-title-text">{n.title}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </section>
+
+            {/* CERTIFICATIONS */}
+            <section id="certifications" className="cert-section">
+              <div className="container">
+                <div className="section-header">
+                  <span className="section-badge">🏆 Verified Credentials</span>
+                  <h2 className="section-title">Certifications & Achievements</h2>
+                  <p className="section-subtitle">Industry credentials demonstrating programming capability in C, soft skills, and paper presentation.</p>
+                </div>
+
+                <div className="cert-grid">
+                  {certificationsData.map((c) => (
+                    <div className="glass-card cert-card" key={c.id}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                        <div className="cert-icon-wrap" style={{ borderColor: c.color }}><span>{c.icon}</span></div>
+                        <span className="cert-issuer-badge" style={{ backgroundColor: `${c.color}20`, color: c.color }}>✔ {c.badgeText}</span>
+                      </div>
+                      <div>
+                        <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>{c.issuer}</span>
+                        <h3 className="cert-title" style={{ marginTop: '0.2rem' }}>{c.title}</h3>
+                      </div>
+                      <p className="cert-desc">{c.description}</p>
+                      <div className="cert-takeaway"><span style={{ fontWeight: 700 }}>Key Competency:</span> {c.keyTakeaway}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* EDUCATION */}
+            <section id="education" className="education-section">
+              <div className="container">
+                <div className="section-header">
+                  <span className="section-badge">🎓 Academic Background</span>
+                  <h2 className="section-title">Education & Milestones</h2>
+                </div>
+                <div className="glass-card">
+                  <div className="edu-timeline-card">
+                    <div>
+                      <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--emerald)', fontSize: '0.85rem', fontWeight: 700, marginBottom: '0.5rem' }}>
+                        <span className="pulse-dot"></span><span>{educationData.currentStatus}</span>
+                      </div>
+                      <h3 style={{ fontSize: '1.75rem', fontWeight: 800, marginBottom: '0.5rem', color: 'var(--text-highlight)' }}>{educationData.degree}</h3>
+                      <div style={{ fontSize: '1.15rem', color: 'var(--primary)', fontWeight: 600, marginBottom: '0.25rem' }}>{educationData.institution}</div>
+                      <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>📍 {educationData.location} &bull; 🗓️ {educationData.duration}</div>
+                    </div>
+                    <div>
+                      <h4 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.8rem', color: 'var(--text-highlight)' }}>Key Coursework</h4>
+                      <div className="course-tags-grid">
+                        {educationData.courses.map((course, i) => (<span className="course-tag" key={i}>{course}</span>))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* CONTACT */}
+            <section id="contact" className="contact-section">
+              <div className="container">
+                <div className="section-header">
+                  <span className="section-badge">📬 Let's Connect</span>
+                  <h2 className="section-title">Get In Touch</h2>
+                  <p className="section-subtitle">Reach out directly via phone, email, or send a message.</p>
+                </div>
+
+                <div className="contact-grid">
+                  <div className="contact-info-list">
+                    <div className="contact-method-card">
+                      <div className="contact-method-icon">📞</div>
+                      <div className="contact-method-details">
+                        <div className="contact-method-label">Phone Number</div>
+                        <div className="contact-method-value">{personalInfo.formattedPhone}</div>
+                      </div>
+                      <a href={`tel:${personalInfo.phone}`} className="copy-btn-icon" title="Call">📱</a>
+                    </div>
+
+                    <div className="contact-method-card">
+                      <div className="contact-method-icon">✉️</div>
+                      <div className="contact-method-details">
+                        <div className="contact-method-label">Email Address</div>
+                        <div className="contact-method-value" style={{ fontSize: '0.98rem' }}>{personalInfo.email}</div>
+                      </div>
+                      <a href={`mailto:${personalInfo.email}`} className="copy-btn-icon" title="Email">✉️</a>
+                    </div>
+
+                    <div className="contact-method-card">
+                      <div className="contact-method-icon">🏛️</div>
+                      <div className="contact-method-details">
+                        <div className="contact-method-label">College & Location</div>
+                        <div className="contact-method-value" style={{ fontSize: '0.95rem' }}>{personalInfo.college}</div>
+                        <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{personalInfo.location}</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="glass-card">
+                    <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '1.25rem', color: 'var(--text-highlight)' }}>Send a Direct Message</h3>
+                    <form onSubmit={(e) => { e.preventDefault(); showToast("Message sent successfully!"); }} className="contact-form">
+                      <div className="form-group">
+                        <label className="form-label">Your Name *</label>
+                        <input type="text" required className="form-input" placeholder="e.g. Recruiter / Collaborator" />
+                      </div>
+                      <div className="form-group">
+                        <label className="form-label">Email Address *</label>
+                        <input type="email" required className="form-input" placeholder="name@company.com" />
+                      </div>
+                      <div className="form-group">
+                        <label className="form-label">Message *</label>
+                        <textarea required className="form-textarea" placeholder="Hello Subashini..."></textarea>
+                      </div>
+                      <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>🚀 Send Message</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </main>
+
+          {/* FOOTER */}
+          <footer className="site-footer">
+            <div className="container">
+              <div className="footer-content">
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem' }}>
+                    <div className="logo-badge" style={{ width: '32px', height: '32px', fontSize: '0.85rem' }}>SM</div>
+                    <h3 style={{ fontSize: '1.25rem', fontWeight: 800 }}>{personalInfo.name}</h3>
+                  </div>
+                  <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)' }}>{personalInfo.college} &bull; {personalInfo.degree} ({personalInfo.currentYear})</p>
+                </div>
+                <div>
+                  <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="btn btn-secondary" style={{ padding: '0.6rem 1.1rem', fontSize: '0.85rem' }}>
+                    ↑ Back to Top
+                  </button>
+                </div>
+              </div>
+              <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '1.5rem', textAlign: 'center', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                &copy; {new Date().getFullYear()} Subashini M. Built with React.
+              </div>
+            </div>
+          </footer>
+
+          {/* RESUME MODAL */}
+          {isResumeOpen && (
+            <div className="modal-backdrop" onClick={() => setIsResumeOpen(false)}>
+              <div className="modal-content" onClick={e => e.stopPropagation()}>
+                <div className="modal-header">
+                  <h3 style={{ fontSize: '1.2rem', fontWeight: 800 }}>Resume Preview &bull; Subashini M</h3>
+                  <div style={{ display: 'flex', gap: '0.6rem' }}>
+                    <button onClick={() => window.print()} className="btn btn-primary" style={{ padding: '0.45rem 0.9rem', fontSize: '0.82rem' }}>🖨️ Print / Save PDF</button>
+                    <button onClick={() => setIsResumeOpen(false)} style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-color)', color: 'var(--text-primary)', width: '32px', height: '32px', borderRadius: '50%', cursor: 'pointer', fontWeight: 'bold' }}>✕</button>
+                  </div>
+                </div>
+                <div className="modal-body">
+                  <div className="resume-paper">
+                    <h2>SUBASHINI M</h2>
+                    <div className="contact-line"><span>{personalInfo.phone}</span> | <span>{personalInfo.email}</span></div>
+                    <div className="resume-section-title">CAREER OBJECTIVE</div>
+                    <p style={{ fontSize: '0.92rem', lineHeight: 1.6, color: '#334155' }}>{personalInfo.careerObjective}</p>
+                    <div className="resume-section-title">EDUCATION</div>
+                    <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#0f172a' }}>{educationData.degree}</div>
+                    <div style={{ fontSize: '0.9rem', color: '#475569' }}>{educationData.institution}</div>
+                    <div style={{ fontSize: '0.85rem', color: '#64748b' }}>Current status: 3rd Year</div>
+                    <div className="resume-section-title">TECHNICAL SKILLS</div>
+                    <ul style={{ paddingLeft: '1.2rem', fontSize: '0.92rem', color: '#334155' }}>
+                      <li><strong>Programming Languages:</strong> Java, Python</li>
+                    </ul>
+                    <div className="resume-section-title">ACADEMIC PROJECTS</div>
+                    <div style={{ marginBottom: '0.8rem' }}>
+                      <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#0f172a' }}>Music Playlist Organizer Using BST</div>
+                      <div style={{ fontSize: '0.9rem', color: '#475569' }}>Academic project focused on organizing a music playlist using a Binary Search Tree (BST).</div>
+                    </div>
+                    <div style={{ marginBottom: '0.8rem' }}>
+                      <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#0f172a' }}>Digital Notice Board in Python</div>
+                      <div style={{ fontSize: '0.9rem', color: '#475569' }}>Python-based project for a digital notice board.</div>
+                    </div>
+                    <div className="resume-section-title">CERTIFICATIONS & ACHIEVEMENTS</div>
+                    <ul style={{ paddingLeft: '1.2rem', fontSize: '0.92rem', color: '#334155', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                      <li>• Enhancing Soft Skills and Personality — <strong>NPTEL</strong></li>
+                      <li>• Problem Solving in C — <strong>NPTEL</strong></li>
+                      <li>• Paper Presentation — <strong>CARE College</strong></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* TOAST */}
+          {toastMessage && (
+            <aside className="toast-container">
+              <div className="toast success"><span>✨</span><span>{toastMessage}</span></div>
+            </aside>
+          )}
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+
+</html>
